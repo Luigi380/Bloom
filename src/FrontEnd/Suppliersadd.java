@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package FrontEnd;
 
-/**
- *
- * @author 20241TPMI0153
- */
 public class Suppliersadd extends javax.swing.JFrame {
+    
+    public Suppliers suppliers = null;
 
     /**
      * Creates new form Suppliersadd
@@ -44,7 +38,7 @@ public class Suppliersadd extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         jLabel10.setFont(new java.awt.Font("SimSun-ExtB", 2, 40)); // NOI18N
@@ -128,10 +122,10 @@ public class Suppliersadd extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("EXIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setText("EXIT");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -183,7 +177,7 @@ public class Suppliersadd extends javax.swing.JFrame {
                 .addGap(194, 194, 194))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
@@ -192,7 +186,7 @@ public class Suppliersadd extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(exitButton)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(204, 204, 204)
@@ -269,9 +263,14 @@ public class Suppliersadd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField13ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(suppliers == null){
+            suppliers = new Suppliers();
+        }
+        this.setVisible(false);
+        suppliers.setVisible(true);
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -313,7 +312,7 @@ public class Suppliersadd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton exitButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
