@@ -5,6 +5,7 @@ public class Stock extends javax.swing.JFrame {
     public Main main = null;
     public StockClothes stockClothes = null;
     public StockMaterials stockMaterials = null;
+    public CreateItems createItens = null;
 
     /**
      * Creates new form Stock
@@ -139,6 +140,11 @@ public class Stock extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        if(createItens == null){
+            createItens = new CreateItems();
+        }
+        this.setVisible(false);
+        createItens.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
