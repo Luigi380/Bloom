@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package FrontEnd;
 
-/**
- *
- * @author gusta
- */
+import Backend.ItemRegister;
+
 public class CreateItems extends javax.swing.JFrame {
     
     public Stock stock = null;
@@ -27,19 +21,19 @@ public class CreateItems extends javax.swing.JFrame {
 
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        amount = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        value = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
         exitButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        product = new javax.swing.JComboBox<>();
+        notice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,50 +43,47 @@ public class CreateItems extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel15.setText("Quantidade:");
 
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        amount.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                amountActionPerformed(evt);
             }
         });
 
         jLabel16.setFont(new java.awt.Font("SimSun-ExtB", 2, 24)); // NOI18N
         jLabel16.setText("BLOOM");
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        name.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setText("Cadastrar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        value.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        value.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                valueActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setText("Filtrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+        id.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                idKeyPressed(evt);
             }
         });
 
@@ -115,8 +106,8 @@ public class CreateItems extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("Categoria:");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material", "Peça" }));
+        product.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material", "Peça" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,10 +127,7 @@ public class CreateItems extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2))
+                            .addComponent(jButton2)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,13 +138,17 @@ public class CreateItems extends javax.swing.JFrame {
                                     .addComponent(jLabel11))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
-                                    .addComponent(jTextField10)
-                                    .addComponent(jTextField11)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(name)
+                                    .addComponent(id, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                                    .addComponent(value)
+                                    .addComponent(amount)
+                                    .addComponent(product, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(376, 376, 376)
+                .addComponent(notice, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,61 +159,52 @@ public class CreateItems extends javax.swing.JFrame {
                     .addComponent(exitButton))
                 .addGap(133, 133, 133)
                 .addComponent(jLabel10)
-                .addGap(56, 56, 56)
+                .addGap(22, 22, 22)
+                .addComponent(notice)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))))
+                            .addComponent(product, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13)))
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addComponent(jButton2)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_amountActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_valueActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
@@ -231,6 +214,27 @@ public class CreateItems extends javax.swing.JFrame {
         this.setVisible(false);
         stock.setVisible(true);
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        ItemRegister item = new ItemRegister(
+                name.getText(),
+                product.getSelectedItem().toString(),
+                Double.parseDouble(value.getText()),
+                Integer.parseInt(id.getText()),
+                Integer.parseInt(amount.getText())
+        );
+        name.setText("");
+        value.setText("");
+        id.setText("");
+        amount.setText("");
+        notice.setText("Item Cadastrado com Sucesso");
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void idKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idKeyPressed
+        // TODO add your handling code here:
+        notice.setText("");
+    }//GEN-LAST:event_idKeyPressed
 
     /**
      * @param args the command line arguments
@@ -269,10 +273,10 @@ public class CreateItems extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField amount;
     private javax.swing.JButton exitButton;
+    private javax.swing.JTextField id;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -280,9 +284,9 @@ public class CreateItems extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField name;
+    private javax.swing.JLabel notice;
+    private javax.swing.JComboBox<String> product;
+    private javax.swing.JTextField value;
     // End of variables declaration//GEN-END:variables
 }

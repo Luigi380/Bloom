@@ -4,8 +4,7 @@ import java.util.Vector;
 
 public class Main extends javax.swing.JFrame {
 
-    public Vector itemList = new Vector(10);
-    public Suppliers suppliers = null;
+    public SuppliersList suppliersList = null;
     public Stock stock = null;
     public Accounting accounting = null;
     
@@ -97,11 +96,11 @@ public class Main extends javax.swing.JFrame {
 
     private void suppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliersButtonActionPerformed
         // TODO add your handling code here:
-        if(suppliers == null){
-            suppliers = new Suppliers();
+        if(suppliersList == null){
+            suppliersList = new SuppliersList();
         }
         this.setVisible(false);
-        suppliers.setVisible(true);
+        suppliersList.setVisible(true);
     }//GEN-LAST:event_suppliersButtonActionPerformed
 
     private void stockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockButtonActionPerformed

@@ -1,13 +1,15 @@
 package FrontEnd;
 
-public class Suppliersadd extends javax.swing.JFrame {
+import Backend.Suppliers;
+
+public class SuppliersAdd extends javax.swing.JFrame {
     
-    public Suppliers suppliers = null;
+    public SuppliersList suppliersResgister = null;
 
     /**
      * Creates new form Suppliersadd
      */
-    public Suppliersadd() {
+    public SuppliersAdd() {
         initComponents();
     }
 
@@ -21,7 +23,7 @@ public class Suppliersadd extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -29,15 +31,15 @@ public class Suppliersadd extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        product = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        cep = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        cnpj = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        phone = new javax.swing.JTextField();
         exitButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -46,12 +48,7 @@ public class Suppliersadd extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        name.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Cadastro de Fornecedores");
@@ -71,33 +68,13 @@ public class Suppliersadd extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("E-mail:");
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
+        product.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
 
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
+        email.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
+        cep.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("CEP:");
@@ -105,22 +82,12 @@ public class Suppliersadd extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("CNPJ:");
 
-        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
+        cnpj.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("SimSun-ExtB", 2, 24)); // NOI18N
         jLabel11.setText("BLOOM");
 
-        jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
+        phone.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         exitButton.setText("EXIT");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -131,9 +98,9 @@ public class Suppliersadd extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
 
@@ -163,13 +130,13 @@ public class Suppliersadd extends javax.swing.JFrame {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField10)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cep, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(email)
+                                .addComponent(cnpj, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField7)
-                                .addComponent(jTextField13)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(product)
+                                .addComponent(phone)
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,31 +164,31 @@ public class Suppliersadd extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
@@ -235,46 +202,32 @@ public class Suppliersadd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
-        if(suppliers == null){
-            suppliers = new Suppliers();
+        if(suppliersResgister == null){
+            suppliersResgister = new SuppliersList();
         }
         this.setVisible(false);
-        suppliers.setVisible(true);
+        suppliersResgister.setVisible(true);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Suppliers sup = new Suppliers(
+                name.getText(),
+                product.getText(),
+                Integer.parseInt(phone.getText()),
+                email.getText(),
+                Integer.parseInt(cep.getText()),
+                Integer.parseInt(cnpj.getText())
+        );
+        name.setText("");
+        product.setText("");
+        phone.setText("");
+        email.setText("");
+        cep.setText("");
+        cnpj.setText("");
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -293,25 +246,29 @@ public class Suppliersadd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Suppliersadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Suppliersadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Suppliersadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Suppliersadd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Suppliersadd().setVisible(true);
+                new SuppliersAdd().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cep;
+    private javax.swing.JTextField cnpj;
+    private javax.swing.JTextField email;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -325,12 +282,9 @@ public class Suppliersadd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField phone;
+    private javax.swing.JTextField product;
     // End of variables declaration//GEN-END:variables
 }
