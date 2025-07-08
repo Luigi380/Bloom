@@ -1,11 +1,11 @@
 package FrontEnd;
 
-public class Suppliers extends javax.swing.JFrame {
+public class SuppliersList extends javax.swing.JFrame {
     
     public Main main = null;
-    public Suppliersadd suppliersadd = null;
+    public SuppliersAdd suppliersadd = null;
     
-    public Suppliers() {
+    public SuppliersList() {
         initComponents();
     }
 
@@ -109,7 +109,7 @@ public class Suppliers extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
         if(suppliersadd == null){
-            suppliersadd = new Suppliersadd();
+            suppliersadd = new SuppliersAdd();
         }
         this.setVisible(false);
         suppliersadd.setVisible(true);
@@ -145,20 +145,23 @@ public class Suppliers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Suppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Suppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Suppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Suppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SuppliersList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Suppliers().setVisible(true);
+                new SuppliersList().setVisible(true);
             }
         });
     }

@@ -1,73 +1,62 @@
 package Backend;
 
-public class ItemRegister {
+public class ItemRegister extends Register{
     
-    private String name;
-    private String val;
-    private String id;
-    private String type;
+    private int id;
+    private double val;
+    private int amount;
+    public Register reg;
     
-    public ItemRegister (String name, String val, String id, String type){
-        this.id = id;
-        this.name = name;
-        this.type = type;
+    public ItemRegister(String name, String product, double val, int id, int amount){
+        super(name, product);
         this.val = val;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+        this.id = id;
+        this.amount = amount;
     }
 
     /**
      * @return the val
      */
-    public String getVal() {
+    public double getVal() {
         return val;
     }
 
     /**
      * @param val the val to set
      */
-    public void setVal(String val) {
+    public void setVal(double val) {
         this.val = val;
     }
 
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * @return the type
+     * @return the amount
      */
-    public String getType() {
-        return type;
+    public int getAmount() {
+        return amount;
     }
 
     /**
-     * @param type the type to set
+     * @param amount the amount to set
      */
-    public void setType(String type) {
-        this.type = type;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
     
+    public String print(){
+        return id + ": " + reg.getName() + " -- Tipo: " + reg.getProduct() + " -- R$" + val;
+    }
 }

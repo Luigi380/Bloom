@@ -1,13 +1,16 @@
 package FrontEnd;
 
+import Backend.ItemRegister;
+
 public class StockClothes extends javax.swing.JFrame {
     
     public Stock stock = null;
 
     /**
      * Creates new form Stock3
+     * @param createItems
      */
-    public StockClothes() {
+    public StockClothes(){
         initComponents();
     }
 
@@ -21,18 +24,18 @@ public class StockClothes extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        list = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        list.setColumns(20);
+        list.setRows(5);
+        jScrollPane2.setViewportView(list);
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setText("Adicionar");
@@ -42,11 +45,11 @@ public class StockClothes extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setText("Atualizar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        updateButton.setText("Atualizar");
+        updateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateButtonMouseClicked(evt);
             }
         });
 
@@ -80,7 +83,7 @@ public class StockClothes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(333, 333, 333)
-                        .addComponent(jButton4)
+                        .addComponent(updateButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -98,7 +101,7 @@ public class StockClothes extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton4)
+                    .addComponent(updateButton)
                     .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,10 +115,6 @@ public class StockClothes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         if(stock == null){
@@ -124,6 +123,14 @@ public class StockClothes extends javax.swing.JFrame {
         this.setVisible(false);
         stock.setVisible(true);
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void updateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateButtonMouseClicked
+        // TODO add your handling code here:
+//        for (int i = 0; i < createItems.itemList.size(); i++){
+//            ItemRegister itemR = (ItemRegister) createItems.itemList.get(i);
+//            list.append(itemR.print());
+//        }
+    }//GEN-LAST:event_updateButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -164,10 +171,10 @@ public class StockClothes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea list;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
