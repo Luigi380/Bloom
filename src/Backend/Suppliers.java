@@ -2,13 +2,13 @@ package Backend;
 
 public class Suppliers extends Register{
     
-    private int phone;
+    private String phone;
     private String email;
-    private int cep;
+    private String cep;
     private int cnpj;
     public Register reg;
     
-    public Suppliers(String name, String product, int phone, String email, int cep, int cnpj){
+    public Suppliers(String name, String product, String phone, String email, String cep, int cnpj){
         super(name, product);
         this.phone = phone;
         this.email = email;
@@ -19,14 +19,14 @@ public class Suppliers extends Register{
     /**
      * @return the phone
      */
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
     /**
      * @param phone the phone to set
      */
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -47,14 +47,14 @@ public class Suppliers extends Register{
     /**
      * @return the cep
      */
-    public int getCep() {
+    public String getCep() {
         return cep;
     }
 
     /**
      * @param cep the cep to set
      */
-    public void setCep(int cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 

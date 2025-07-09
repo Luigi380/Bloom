@@ -12,7 +12,7 @@ public class ConnectionDAO {
         Connection conn = null;
         
         try {
-            String url = "jdbc:mysql://localhost:3306/teste?user=root&password=1384";
+            String url = "jdbc:mysql://localhost:3306/banco_dados_bloom?user=root&password=serra";
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ConnectonDAO" + e.getMessage());

@@ -1,6 +1,7 @@
 package FrontEnd;
 
-import Backend.ItemRegister;
+import Backend.Items;
+import Connection.ItemsDAO;
 
 public class CreateItems extends javax.swing.JFrame {
     
@@ -217,7 +218,7 @@ public class CreateItems extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        ItemRegister item = new ItemRegister(
+        Items item = new Items(
                 name.getText(),
                 product.getSelectedItem().toString(),
                 Double.parseDouble(value.getText()),
@@ -229,6 +230,9 @@ public class CreateItems extends javax.swing.JFrame {
         id.setText("");
         amount.setText("");
         notice.setText("Item Cadastrado com Sucesso");
+        
+        ItemsDAO objItemDao = new ItemsDAO();
+        objItemDao.ItemRegister(item);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void idKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idKeyPressed

@@ -1,6 +1,6 @@
 package FrontEnd;
 
-import Backend.ItemRegister;
+import Backend.Items;
 
 public class StockClothes extends javax.swing.JFrame {
     

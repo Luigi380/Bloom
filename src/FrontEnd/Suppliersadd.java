@@ -1,6 +1,7 @@
 package FrontEnd;
 
 import Backend.Suppliers;
+import Connection.SuppliersDAO;
 
 public class SuppliersAdd extends javax.swing.JFrame {
     
@@ -216,9 +217,9 @@ public class SuppliersAdd extends javax.swing.JFrame {
         Suppliers sup = new Suppliers(
                 name.getText(),
                 product.getText(),
-                Integer.parseInt(phone.getText()),
+                phone.getText(),
                 email.getText(),
-                Integer.parseInt(cep.getText()),
+                cep.getText(),
                 Integer.parseInt(cnpj.getText())
         );
         name.setText("");
@@ -227,6 +228,9 @@ public class SuppliersAdd extends javax.swing.JFrame {
         email.setText("");
         cep.setText("");
         cnpj.setText("");
+        
+        SuppliersDAO objSupDao = new SuppliersDAO();
+        objSupDao.suppliersRegister(sup);
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**

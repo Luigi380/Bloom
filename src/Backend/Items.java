@@ -1,13 +1,13 @@
 package Backend;
 
-public class ItemRegister extends Register{
+public class Items extends Register{
     
     private int id;
     private double val;
     private int amount;
     public Register reg;
     
-    public ItemRegister(String name, String product, double val, int id, int amount){
+    public Items(String name, String product, double val, int id, int amount){
         super(name, product);
         this.val = val;
         this.id = id;
