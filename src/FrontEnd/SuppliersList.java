@@ -1,9 +1,14 @@
 package FrontEnd;
 
+import javax.swing.JOptionPane;
+import Backend.Suppliers;
+import Connection.SuppliersDAO;
+import java.util.ArrayList;
+
 public class SuppliersList extends javax.swing.JFrame {
     
     public Main main = null;
-    public SuppliersAdd suppliersadd = null;
+    public SuppliersAdd suppliersAdd = null;
     
     public SuppliersList() {
         initComponents();
@@ -18,36 +23,47 @@ public class SuppliersList extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         exitButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cnpj = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        phone = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        product = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        cep = new javax.swing.JTextField();
+        deleteButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        notice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Fornecedores:");
 
         addButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addButton.setText("Adicionar");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
+        addButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addButtonMouseClicked(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setText("Atualizar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        saveButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        saveButton.setText("Salvar");
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveButtonMouseClicked(evt);
             }
         });
 
@@ -61,27 +77,108 @@ public class SuppliersList extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("CEP:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Nome:");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("CNPJ:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Produto:");
+
+        cnpj.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Telefone: ");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("ID");
+
+        phone.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("E-mail:");
+
+        product.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        id.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                idKeyPressed(evt);
+            }
+        });
+
+        email.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        name.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        cep.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        deleteButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        deleteButton.setText("Excluir");
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
+
+        searchButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        searchButton.setText("Consultar");
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
             .addGroup(layout.createSequentialGroup()
                 .addGap(130, 130, 130)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(333, 333, 333)
-                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
+                        .addComponent(searchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addButton)))
-                .addContainerGap(129, Short.MAX_VALUE))
+                        .addComponent(addButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(deleteButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(saveButton))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cep, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(phone, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(id, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                                .addComponent(product)
+                                .addComponent(cnpj))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(notice)
+                                .addGap(67, 67, 67)))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,28 +193,47 @@ public class SuppliersList extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton4)
-                    .addComponent(addButton))
+                    .addComponent(addButton)
+                    .addComponent(searchButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveButton)
+                    .addComponent(deleteButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(notice)
+                .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
-        if(suppliersadd == null){
-            suppliersadd = new SuppliersAdd();
-        }
-        this.setVisible(false);
-        suppliersadd.setVisible(true);
-    }//GEN-LAST:event_addButtonActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
@@ -127,6 +243,109 @@ public class SuppliersList extends javax.swing.JFrame {
         this.setVisible(false);
         main.setVisible(true);
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
+        // TODO add your handling code here:
+        if(suppliersAdd == null){
+            suppliersAdd = new SuppliersAdd();
+        }
+        this.setVisible(false);
+        suppliersAdd.setVisible(true);
+    }//GEN-LAST:event_addButtonMouseClicked
+
+    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
+        // TODO add your handling code here:
+        try {
+              int idBuscado = Integer.parseInt(id.getText());
+              SuppliersDAO supDAO = new SuppliersDAO();
+              ArrayList<Suppliers> lista = supDAO.SearchSuppliers();
+ 
+              boolean encontrado = false;
+              for (Suppliers s : lista) {
+                  if (s.getId() == idBuscado) {
+                      name.setText(s.getName());
+                      product.setText(s.getProduct());
+                      phone.setText(s.getPhone());
+                      email.setText(s.getEmail());
+                      cep.setText(s.getCep());
+                      cnpj.setText(String.valueOf(s.getCnpj()));
+                      notice.setText("Cliente carregado com sucesso");
+                      encontrado = true;
+                      break;
+                  }
+              }
+ 
+              if (!encontrado) {
+                  notice.setText("Cliente com ID " + idBuscado + " não encontrado.");
+              }
+          } catch (NumberFormatException e) {
+              notice.setText("ID inválido. Digite um número inteiro.");
+          } catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Erro ao consultar cliente: " + e);
+          }
+    }//GEN-LAST:event_searchButtonMouseClicked
+
+    private void idKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idKeyPressed
+        // TODO add your handling code here:
+        notice.setText("");
+    }//GEN-LAST:event_idKeyPressed
+
+    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+        // TODO add your handling code here:
+        try {
+            int idS = Integer.parseInt(id.getText());
+            String nameS = name.getText();
+            String cepS = cep.getText();
+            String phoneS = phone.getText();
+            String emailS = email.getText();
+            String productS = product.getText();
+            String cnpjS = cnpj.getText();
+
+            Suppliers objSup = new Suppliers(nameS, productS, idS, phoneS, emailS, cepS, Integer.parseInt(cnpjS));
+            objSup.setId(idS);
+            objSup.setName(nameS);
+            objSup.setCep(cepS);
+            objSup.setPhone(phoneS);
+            objSup.setEmail(emailS);
+            objSup.setProduct(productS);
+            objSup.setCnpj(Integer.parseInt(cnpjS));
+
+            SuppliersDAO dao = new SuppliersDAO();
+            dao.suppliersUpdate(objSup);
+
+            notice.setText("Dados do Cliente foram alterados com sucesso");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar alterações: " + e);
+        }
+        id.setText("");
+        name.setText("");
+        cep.setText("");
+        phone.setText("");
+        email.setText("");
+        product.setText("");
+        cnpj.setText("");
+
+    }//GEN-LAST:event_saveButtonMouseClicked
+
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+        // TODO add your handling code here:
+//        try {
+//            int idSu = Integer.parseInt(id.getText());
+//            SuppliersDAO dao = new SuppliersDAO();
+//            dao.suppliersUpdate(idSu);
+//
+//            id.setText("");
+//            name.setText("");
+//            cep.setText("");
+//            phone.setText("");
+//            email.setText("");
+//            product.setText("");
+//            cnpj.setText("");
+//            notice.setText("Cliente excluído com sucesso");
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Erro ao excluir cliente: " + e);
+//        }
+    }//GEN-LAST:event_deleteButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -168,11 +387,26 @@ public class SuppliersList extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JTextField cep;
+    private javax.swing.JTextField cnpj;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField email;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField name;
+    private javax.swing.JLabel notice;
+    private javax.swing.JTextField phone;
+    private javax.swing.JTextField product;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton searchButton;
     // End of variables declaration//GEN-END:variables
-}
+ }

@@ -8,9 +8,8 @@ public class Items extends Register{
     public Register reg;
     
     public Items(String name, String product, double val, int id, int amount){
-        super(name, product);
+        super(name, product, id);
         this.val = val;
-        this.id = id;
         this.amount = amount;
     }
 
@@ -58,5 +57,9 @@ public class Items extends Register{
     
     public String print(){
         return id + ": " + reg.getName() + " -- Tipo: " + reg.getProduct() + " -- R$" + val;
+    }
+    
+    public String printSuppliersId() {
+        return reg.printId("I");
     }
 }

@@ -8,8 +8,8 @@ public class Suppliers extends Register{
     private int cnpj;
     public Register reg;
     
-    public Suppliers(String name, String product, String phone, String email, String cep, int cnpj){
-        super(name, product);
+    public Suppliers(String name, String product, int id, String phone, String email, String cep, int cnpj){
+        super(name, product, id);
         this.phone = phone;
         this.email = email;
         this.cep = cep;
@@ -72,7 +72,7 @@ public class Suppliers extends Register{
         this.cnpj = cnpj;
     }
     
-    public String print(){
-        return "Fornecedor: " + reg.getName() + " -- Fornece: " + reg.getProduct();
+    public String printSuppliersId() {
+        return reg.printId("S");
     }
 }

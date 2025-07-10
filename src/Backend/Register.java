@@ -4,10 +4,12 @@ public class Register {
     
     private String name;
     private String product;
+    private int id;
     
-    public Register (String name, String product){
+    public Register (String name, String product, int id){
         this.name = name;
         this.product = product;
+        this.id = id;
     }
 
     /**
@@ -41,5 +43,22 @@ public class Register {
     public String print(){
         return name + product;
     }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
     
+    public String printId(String parameter) {
+        return parameter + getId();
+    }
 }
